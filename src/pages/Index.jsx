@@ -7,9 +7,12 @@ const Index = () => {
   const [productName, setProductName] = useState("");
   const [productImage, setProductImage] = useState("");
 
+  const defaultImage = "https://via.placeholder.com/150";
+
   const handleAddProduct = () => {
+    const image = productImage || defaultImage;
     if (productName && productImage) {
-      setProducts([...products, { name: productName, image: productImage }]);
+      setProducts([...products, { name: productName, image }]);
       setProductName("");
       setProductImage("");
     }
@@ -26,7 +29,9 @@ const Index = () => {
         <HStack width="100%">
           <Input placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
           <Input placeholder="Product Image URL" value={productImage} onChange={(e) => setProductImage(e.target.value)} />
-          <Button onClick={handleAddProduct}>Add Product</Button>
+          <Button colorScheme="teal" onClick={handleAddProduct}>
+            Add Product
+          </Button>
         </HStack>
         <VStack spacing={4} width="100%">
           {products.map((product, index) => (
