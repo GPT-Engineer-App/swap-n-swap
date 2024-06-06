@@ -29,7 +29,7 @@ const Index = () => {
         <HStack width="100%">
           <Input placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
           <Input placeholder="Product Image URL" value={productImage} onChange={(e) => setProductImage(e.target.value)} />
-          <Button colorScheme="teal" onClick={handleAddProduct}>
+          <Button colorScheme="teal" onClick={handleAddProduct} width="150px">
             Add Product
           </Button>
         </HStack>
